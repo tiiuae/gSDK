@@ -105,7 +105,7 @@ int Serial_Port::read_message(char *buf, uint16_t len)
     //   READ FROM PORT
     // --------------------------------------------------------------------------
     // this function locks the port during read
-    return _read_port(buf, 256);
+    return _read_port(buf, len);
 }
 
 // ------------------------------------------------------------------------------
