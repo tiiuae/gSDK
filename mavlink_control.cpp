@@ -34,7 +34,7 @@
 /* Private define-------------------------------------------------------------*/
 
 /* Uncomment line below to use MAVLink Gimbal Protocol V1 */
-#define _USE_MAVLINK_GIMBAL_V1
+// #define _USE_MAVLINK_GIMBAL_V1
 
 /* Private Typedef------------------------------------------------------------*/
 
@@ -307,7 +307,7 @@ void gGimbal_control_sample(Gimbal_Interface &onboard)
                 onboard.set_gimbal_config_tilt_axis(config);
                 config = { Gimbal_Interface::DIR_CW, 50, 20, 0, 0, 2 };    // Roll
                 onboard.set_gimbal_config_roll_axis(config);
-                config = { Gimbal_Interface::DIR_CW, 50, 20, 100, 20, 2 };  // Yaw
+                config = { Gimbal_Interface::DIR_CCW, 50, 20, 100, 20, 2 };  // Yaw
                 onboard.set_gimbal_config_pan_axis(config);
                 // Motor control likes: Stiffness, holdstrength, gyro filter, output filter and gain
                 // Uncomment block below to configure gimbal motor
