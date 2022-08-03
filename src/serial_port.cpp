@@ -398,10 +398,10 @@ bool Serial_Port::_setup_port(int baud, int data_bits, int stop_bits, bool parit
 int Serial_Port::_read_port(char *buf, uint16_t len)
 {
     // Lock
-    // pthread_mutex_lock(&lock);
+    pthread_mutex_lock(&lock);
     int result = read(fd, buf, len);
     // Unlock
-    // pthread_mutex_unlock(&lock);
+    pthread_mutex_unlock(&lock);
     return result;
 }
 
@@ -411,12 +411,12 @@ int Serial_Port::_read_port(char *buf, uint16_t len)
 int Serial_Port::_write_port(const char *buf, unsigned len)
 {
     // Lock
-    // pthread_mutex_lock(&lock);
+    pthread_mutex_lock(&lock);
     // Write packet via serial link
     const int bytesWritten = static_cast<int>(write(fd, buf, len));
     // Wait until all data has been written
     tcdrain(fd);
     // Unlock
-    // pthread_mutex_unlock(&lock);
+    pthread_mutex_unlock(&lock);
     return bytesWritten;
 }

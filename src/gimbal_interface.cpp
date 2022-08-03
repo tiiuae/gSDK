@@ -1506,6 +1506,8 @@ void Gimbal_Interface::start()
 
     // now we're streaming HEARTBEAT
     printf("\n");
+    // Sleep for 1s to ensure first message is written.
+    usleep(1000000);
     // --------------------------------------------------------------------------
     //   READ THREAD
     // --------------------------------------------------------------------------
